@@ -16,6 +16,7 @@ do
     while (!Int32.TryParse(received, out action))
     {
         Console.Write("Not valid, try again");
+        break;
     }
 
     Console.WriteLine("First number: ");
@@ -23,6 +24,7 @@ do
     while (!Int32.TryParse(received, out number1))
     { 
         Console.WriteLine("Not valid, try again");
+        break;
     }
 
     Console.WriteLine("Second number: ");
@@ -30,6 +32,7 @@ do
     while (!Int32.TryParse(received, out number2))
     {
         Console.WriteLine("Not valid, try again");
+        break;
     }
 
     switch (action)
