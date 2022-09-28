@@ -7,32 +7,32 @@ Console.WriteLine("2. Sub");
 Console.WriteLine("3. Multiply");
 Console.WriteLine("4. Divide");
 
-int action, number1, number2, result;
+float action, number1, number2, result;
 bool stillMore;
 do
 {
-    Console.WriteLine("Enter your first option: ");
+    Console.Write("Enter your option: ");
     string received = Console.ReadLine();
-    while (!Int32.TryParse(received, out action))
-    {
-        Console.Write("Not valid, try again");
-        break;
-    }
-
-    Console.WriteLine("First number: ");
-    received = Console.ReadLine();
-    while (!Int32.TryParse(received, out number1))
+    while (!float.TryParse(received, out action))
     { 
-        Console.WriteLine("Not valid, try again");
-        break;
+        Console.Write("Not valid, try again: ");
+        received = Console.ReadLine();
     }
 
-    Console.WriteLine("Second number: ");
+    Console.Write("Enter 1st No: ");
     received = Console.ReadLine();
-    while (!Int32.TryParse(received, out number2))
+    while (!float.TryParse(received, out number1))
+    { 
+        Console.Write("Not valid, try again: ");
+        received = Console.ReadLine();
+    }
+
+    Console.Write("Enter 2nd No: ");
+    received = Console.ReadLine();
+    while (!float.TryParse(received, out number2))
     {
-        Console.WriteLine("Not valid, try again");
-        break;
+        Console.WriteLine("Not valid, try again: ");
+        received= Console.ReadLine();
     }
 
     switch (action)
@@ -54,7 +54,10 @@ do
 
         case 4:
             result = number1 / number2;
-            Console.WriteLine("Divide: " + result);
+            if(number2 == 0)
+                Console.WriteLine("Denominator can't be 0.");
+            else
+                Console.WriteLine("Divide: " + result);
             break;
 
         default:
